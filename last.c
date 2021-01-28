@@ -50,7 +50,7 @@ main(int argc, char **argv)
 
 	while (fread(&ut, sizeof(ut), 1, fp) == 1) {
 		if (ut.ut_type != USER_PROCESS ||
-		    (user && strcmp(user, ut.ut_name))) {
+		    (user && strncmp(user, ut.ut_name, UT_NAMESIZE))) {
 			continue;
 		}
 

@@ -97,7 +97,7 @@ main(int argc, char *argv[])
 				break;
 			if (usr.ut_line[0] == '\0')
 				continue;
-			if (strcmp(usr.ut_line, tty) != 0)
+			if (strncmp(usr.ut_line, tty, UT_LINESIZE) != 0)
 				continue;
 			memset(&usr, 0, sizeof(usr));
 			fseek(fp, pos, SEEK_SET);

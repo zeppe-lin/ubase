@@ -51,7 +51,7 @@ main(int argc, char *argv[])
 		if (!*usr.ut_name || !*usr.ut_line ||
 		    usr.ut_line[0] == '~')
 			continue;
-		if (mflag != 0 && strcmp(usr.ut_line, tty) != 0)
+		if (mflag != 0 && strncmp(usr.ut_line, tty, UT_LINESIZE) != 0)
 			continue;
 		if (!!strcmp(usr.ut_name, "LOGIN") == lflag)
 			continue;
