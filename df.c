@@ -112,6 +112,7 @@ main(int argc, char *argv[])
 	case 's':
 	case 'i':
 		eprintf("not implemented\n");
+		/*FALLTHROUGH*/
 	default:
 		usage();
 	} ARGEND;
