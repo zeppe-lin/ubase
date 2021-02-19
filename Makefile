@@ -56,6 +56,7 @@ BIN1 = \
 	pwdx              \
 	respawn           \
 	stat              \
+	stty              \
 	su                \
 	truncate          \
 	unshare           \
@@ -83,7 +84,6 @@ BIN8 = \
 	pivot_root        \
 	readahead         \
 	rmmod             \
-	stty              \
 	swaplabel         \
 	swapoff           \
 	swapon            \
