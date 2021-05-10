@@ -55,13 +55,15 @@ main(int argc, char *argv[])
 
 	SLIST_INIT(&omitpid_head);
 
-	for (p = strtok(arg, ","); p; p = strtok(NULL, ",")) {
-		pe = emalloc(sizeof(*pe));
-		if (strcmp(p, "%PPID") == 0)
-			pe->pid = getppid();
-		else
-			pe->pid = estrtol(p, 10);
-		SLIST_INSERT_HEAD(&omitpid_head, pe, entry);
+	if (oflag) {
+		for (p = strtok(arg, ","); p; p = strtok(NULL, ",")) {
+			pe = emalloc(sizeof(*pe));
+			if (strcmp(p, "%PPID") == 0)
+				pe->pid = getppid();
+			else
+				pe->pid = estrtol(p, 10);
+			SLIST_INSERT_HEAD(&omitpid_head, pe, entry);
+		}
 	}
 
 	if (!(dp = opendir("/proc")))
