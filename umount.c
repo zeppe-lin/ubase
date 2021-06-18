@@ -23,6 +23,10 @@ umountall(int flags)
 	while ((me = getmntent(fp))) {
 		if (strcmp(me->mnt_type, "proc") == 0)
 			continue;
+		if (strcmp(me->mnt_type, "sysfs") == 0)
+			continue;
+		if (strcmp(me->mnt_type, "devtmpfs") == 0)
+			continue;
 		mntdirs = erealloc(mntdirs, ++len * sizeof(*mntdirs));
 		mntdirs[len - 1] = estrdup(me->mnt_dir);
 	}

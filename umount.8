@@ -1,4 +1,4 @@
-.Dd February 2, 2015
+.Dd June 18, 2021
 .Dt UMOUNT 8
 .Os ubase
 .Sh NAME
@@ -24,7 +24,9 @@ case this device was mounted on more than one directory.
 .It Fl a
 All of the file systems described in
 .Pa /proc/mounts
-are unmounted. The proc filesystem is not unmounted.
+are unmounted. The
+.Xr proc 5 ,
+.Xr sysfs 5 , and devtmpfs filesystems are not unmounted.
 .It Fl f
 Force unmount (in case of an unreachable NFS server).
 .It Fl l
