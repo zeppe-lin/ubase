@@ -295,6 +295,9 @@ mountall:
 	if (!(fp = setmntent("/etc/fstab", "r")))
 		eprintf("setmntent %s:", "/etc/fstab");
 	while ((me = getmntent(fp))) {
+		/* has "swap" fstype: skip */
+		if (strncmp(me->mnt_type, "swap", strlen(me->mnt_type)) == 0)
+			continue;
 		/* has "noauto" option or already mounted: skip */
 		if (hasmntopt(me, MNTOPT_NOAUTO) || mounted(me->mnt_dir))
 			continue;
